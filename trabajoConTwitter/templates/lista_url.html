@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load pagination_tags %}
+{% block title %} Urls con sus retwits {% endblock %}
+{% block contenido %}
+	{% autopaginate twits 10 %}
+	{% for tweet in twits %}
+		<article>
+			<b><a href="{{ tweet.url}}" target='_blank'>{{ tweet.url}}</a></b>  -  retwits: {{ tweet.retwits}}
+		</article>
+	{% endfor %}
+	<div id="paginas">{% paginate %}</div>
+{% endblock %}

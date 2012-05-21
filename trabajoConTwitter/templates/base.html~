@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="es">
+<head>
+<title>{% block title %}Titulo{% endblock %}</title>
+<link href="css/estilos.css">
+</head>
+<body>
+<section>
+<h1>Twits con url de @freddier y @ cvander</h1>
+<article>
+{% block contenido %} Contenido {% endblock %}
+</article>
+</section>
+</body>
+</html> 

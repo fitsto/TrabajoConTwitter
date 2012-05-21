@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load pagination_tags %}
+{% block title %} Twits con Url {% endblock %}
+{% block contenido %}
+    {% autopaginate user_timeline 10 %}
+    {% for tweet in user_timeline %}
+    	<article>
+    		<header><b>  @{{ tweet.user}}:</b> creado el {{ tweet.fecha}} || retwits: {{ tweet.retwits}} </header>
+        {{ tweet.text}} 
+        </article>
+    {% endfor %}
+    <div id="paginas">{% paginate %}</div>
+    
+{% endblock %}

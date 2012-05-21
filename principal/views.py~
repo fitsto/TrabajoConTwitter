@@ -1,0 +1,22 @@
+# Create your views here.
+from django.http import HttpResponse
+from django.shortcuts import render_to_response
+from twython import Twython
+
+
+def hello(request):
+    return HttpResponse("Hola mundo")
+
+
+def verTwitter(request):
+    #usuario = "fitsto"
+    #twitter = Twython()
+    #followers = twitter.getFollowersIDs( screen_name = usuario )
+
+    twitter = Twython()
+    user_timeline = twitter.getUserTimeline(screen_name="cvander", count="3")
+
+    for recorretwits in user_timeline:
+        a = recorretwits.text
+
+    return render_to_response('twitter.html', {'user_timeline': user_timeline})
